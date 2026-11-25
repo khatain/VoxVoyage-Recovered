@@ -1,0 +1,6 @@
+{
+  "name": "VoxVoyage — World Explorer 3D",
+  "description": "Your Voice. Your Voyage. An interactive 3D world exploration game designed to develop English speaking skills for Thai upper-secondary learners at CEFR A2–B1.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}

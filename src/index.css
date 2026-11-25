@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* VoxVoyage Core Brand Constants */
+  --vv-navy: #20304A;
+  --vv-teal: #24B8B0;
+  --vv-teal-hover: #1E9E97;
+  --vv-gold: #F2C66D;
+  --vv-coral: #FF9478;
+  --vv-cloud: #F7F9FC;
+
+  /* Day Mode Surface & Ink Palette (Default) */
+  --vv-canvas: #E6F4FC;
+  --vv-canvas-accent: #D4ECFA;
+  --vv-header: rgba(247, 249, 252, 0.94);
+  --vv-hud: #D9ECF8;
+  --vv-surface: #F7F9FC;
+  --vv-surface-inset: #E8F2FA;
+  --vv-surface-hover: #DFEDF7;
+  --vv-ink: #20304A;
+  --vv-ink-secondary: #394E6E;
+  --vv-ink-muted: #526785;
+  --vv-teal-ink: #0F7E78;
+  --vv-gold-ink: #94630E;
+  --vv-coral-ink: #B8472E;
+  --vv-border: rgba(32, 48, 74, 0.14);
+  --vv-border-strong: rgba(32, 48, 74, 0.28);
+
+  /* Typography */
+  --font-display: 'Outfit', 'Noto Sans Thai', system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans Thai', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.dark {
+  /* Night Mode Surface & Ink Palette */
+  --vv-canvas: #111832;
+  --vv-canvas-accent: #1C1A3D;
+  --vv-header: rgba(17, 24, 50, 0.94);
+  --vv-hud: #172142;
+  --vv-surface: #1A264A;
+  --vv-surface-inset: #131C38;
+  --vv-surface-hover: #23325E;
+  --vv-ink: #F7F9FC;
+  --vv-ink-secondary: #C8D4E6;
+  --vv-ink-muted: #93A7C7;
+  --vv-teal-ink: #24B8B0;
+  --vv-gold-ink: #F2C66D;
+  --vv-coral-ink: #FF9478;
+  --vv-border: rgba(247, 249, 252, 0.13);
+  --vv-border-strong: rgba(242, 198, 109, 0.36);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background-color: var(--vv-canvas);
+    color: var(--vv-ink);
+  }
+
+  body {
+    background-color: var(--vv-canvas);
+    color: var(--vv-ink);
+    transition: background-color 600ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--vv-gold);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@keyframes vvGoldSparkle {
+  0%, 100% {
+    transform: translateY(0px) scale(0.9);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-6px) scale(1.18);
+    opacity: 0.95;
+  }
+}
+
+.vv-gold-sparkle {
+  animation: vvGoldSparkle 2.8s ease-in-out infinite;
+}
